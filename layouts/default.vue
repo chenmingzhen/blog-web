@@ -5,6 +5,7 @@
       <nuxt/>
     </div>
     <Footer/>
+    <el-backtop bottom="80"/>
   </div>
 </template>
 
