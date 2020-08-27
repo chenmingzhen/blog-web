@@ -20,7 +20,7 @@
         <el-col class="nav-right" :xs="18" :sm="18" :md="8">
           <div class="nav-sign">
             <el-button type="test">管理后台</el-button>
-            <el-button type="test">登录</el-button>
+            <el-button type="test" @click="$store.dispatch('LoginPage')">登录</el-button>
             <el-button type="test" size="small" round>注册</el-button>
           </div>
           <el-dropdown @command="handleCommand">
