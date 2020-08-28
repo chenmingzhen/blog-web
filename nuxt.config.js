@@ -17,8 +17,8 @@ export default {
     //title: process.env.npm_package_name || '',
     title: "博客社区",
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {charset: "utf-8"},
+      {name: "viewport", content: "width=device-width, initial-scale=1"},
       {
         hid: "description",
         name: "description",
@@ -26,7 +26,7 @@ export default {
         content: "开发论坛"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/record.ico" }]
+    link: [{rel: "icon", type: "image/x-icon", href: "/record.ico"}]
   },
   /*
    ** Global CSS
@@ -44,7 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ["@/plugins/element-ui",'@/plugins/resetFontSize.js'],
+  plugins: ["@/plugins/element-ui", '@/plugins/resetFontSize.js', '@/plugins/interceptor'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -57,7 +57,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt',
+  ],
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
@@ -65,5 +68,8 @@ export default {
   build: {
     //4. 将位于node_modules的模块导出
     transpile: [/^element-ui/]
+  },
+  env: {
+    authURL: process.env.NODE_ENV === 'dev' ? '//localhost:7000' : '线上地址//xxx.com'
   }
 };
